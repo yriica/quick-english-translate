@@ -1,0 +1,212 @@
+/* Styles for Quick English Translate overlay and toast */
+
+.qet-overlay {
+  position: absolute;
+  max-width: 320px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  z-index: 2147483647;
+  animation: qetFadeIn 0.2s ease-out;
+}
+
+.qet-overlay-content {
+  padding: 0;
+}
+
+.qet-overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fafafa;
+  border-radius: 12px 12px 0 0;
+}
+
+.qet-overlay-title {
+  font-weight: 600;
+  color: #333;
+  font-size: 13px;
+}
+
+.qet-overlay-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.qet-overlay-close:hover {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.qet-overlay-body {
+  padding: 16px;
+}
+
+.qet-original-text,
+.qet-translated-text {
+  margin-bottom: 12px;
+}
+
+.qet-original-text:last-child,
+.qet-translated-text:last-child {
+  margin-bottom: 0;
+}
+
+.qet-original-text strong,
+.qet-translated-text strong {
+  color: #555;
+  font-size: 12px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.qet-text-content {
+  background: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border-left: 3px solid #4285f4;
+  color: #333;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.qet-translated-text .qet-text-content {
+  border-left-color: #34a853;
+  background: #f0f8f0;
+}
+
+.qet-toast {
+  position: fixed;
+  background: #333;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 2147483647;
+  animation: qetSlideIn 0.3s ease-out;
+  max-width: 400px;
+  text-align: center;
+}
+
+.qet-toast-success {
+  background: #34a853;
+}
+
+.qet-toast-warning {
+  background: #fbbc04;
+  color: #333;
+}
+
+.qet-toast-error {
+  background: #ea4335;
+}
+
+@keyframes qetFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes qetSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .qet-overlay {
+    background: #2d2d2d;
+    border-color: #444;
+    color: #e0e0e0;
+  }
+  
+  .qet-overlay-header {
+    background: #3a3a3a;
+    border-bottom-color: #444;
+  }
+  
+  .qet-overlay-title {
+    color: #e0e0e0;
+  }
+  
+  .qet-overlay-close {
+    color: #ccc;
+  }
+  
+  .qet-overlay-close:hover {
+    background-color: #444;
+    color: #fff;
+  }
+  
+  .qet-original-text strong,
+  .qet-translated-text strong {
+    color: #ccc;
+  }
+  
+  .qet-text-content {
+    background: #3a3a3a;
+    color: #e0e0e0;
+  }
+  
+  .qet-translated-text .qet-text-content {
+    background: #2a3a2a;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .qet-overlay {
+    border-width: 2px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .qet-text-content {
+    border-left-width: 4px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .qet-overlay {
+    animation: none;
+  }
+  
+  .qet-toast {
+    animation: none;
+  }
+  
+  .qet-overlay-close {
+    transition: none;
+  }
+}

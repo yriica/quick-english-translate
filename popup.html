@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick English Translate</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="popup-header">
+      <h1 class="popup-title">Quick English Translate</h1>
+      <button id="settingsBtn" class="settings-btn" title="Settings">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="m12 1 8.6 5v10L12 21 3.4 16V6L12 1z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <div class="action-item">
+        <span class="action-label">Auto-copy to clipboard:</span>
+        <label class="toggle">
+          <input type="checkbox" id="autoCopyToggle">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="status-section">
+      <div id="statusIndicator" class="status-indicator">
+        <div class="status-dot"></div>
+        <span id="statusText">Ready</span>
+      </div>
+    </div>
+
+    <!-- Translation History -->
+    <div class="history-section">
+      <div class="section-header">
+        <h3>Recent Translations</h3>
+        <button id="clearHistoryBtn" class="clear-btn" title="Clear History">Clear</button>
+      </div>
+      <div id="historyList" class="history-list">
+        <div class="no-history">No translations yet</div>
+      </div>
+    </div>
+
+    <!-- Settings Panel (Hidden by default) -->
+    <div id="settingsPanel" class="settings-panel hidden">
+      <div class="panel-header">
+        <h3>Settings</h3>
+        <button id="closeSettingsBtn" class="close-btn">×</button>
+      </div>
+      
+      <div class="settings-content">
+        <!-- API Provider -->
+        <div class="setting-group">
+          <label for="providerSelect">Translation Service:</label>
+          <select id="providerSelect">
+            <option value="deepl">DeepL</option>
+            <option value="google">Google Translate</option>
+            <option value="openai">OpenAI GPT</option>
+          </select>
+        </div>
+
+        <!-- API Key -->
+        <div class="setting-group">
+          <label for="apiKeyInput">API Key:</label>
+          <div class="api-key-container">
+            <input type="password" id="apiKeyInput" placeholder="Enter your API key">
+            <button id="toggleApiKey" class="toggle-visibility-btn" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+          <div class="api-key-help">
+            <a href="#" id="apiKeyHelp" target="_blank">Get API key</a>
+          </div>
+        </div>
+
+        <!-- Options -->
+        <div class="setting-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="showOverlayCheck">
+            <span>Show translation overlay</span>
+          </label>
+        </div>
+
+        <div class="setting-group">
+          <label for="maxCharsInput">Max characters:</label>
+          <input type="number" id="maxCharsInput" min="100" max="10000" value="5000">
+        </div>
+
+        <div class="setting-group">
+          <label for="autoCloseDelayInput">Auto-close delay (seconds):</label>
+          <input type="number" id="autoCloseDelayInput" min="0" max="300" value="30">
+          <small>Set to 0 to disable auto-close</small>
+        </div>
+
+        <!-- Save Button -->
+        <button id="saveSettingsBtn" class="save-btn">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

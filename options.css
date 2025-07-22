@@ -1,0 +1,525 @@
+/* Options page styles for Quick English Translate */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.options-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.options-header {
+  background: linear-gradient(135deg, #4285f4 0%, #3367d6 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.options-header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.options-header p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+/* Main Content */
+.options-main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.settings-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.settings-section {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.settings-section h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.3rem;
+  color: #333;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+}
+
+.setting-item {
+  margin-bottom: 1.5rem;
+}
+
+.setting-item:last-child {
+  margin-bottom: 0;
+}
+
+.setting-item label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.setting-description {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Form Elements */
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  background: #fff;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+}
+
+.form-input[type="number"] {
+  max-width: 200px;
+}
+
+/* API Key Input */
+.api-key-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.api-key-wrapper .form-input {
+  padding-right: 3rem;
+}
+
+.toggle-btn {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.toggle-btn:hover {
+  color: #4285f4;
+}
+
+.api-key-help {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.api-key-help a {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #4285f4;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.api-key-help a:hover {
+  text-decoration: underline;
+}
+
+.api-status {
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.api-status.valid {
+  background: #e6f7e6;
+  color: #2e7d2e;
+}
+
+.api-status.invalid {
+  background: #ffeaea;
+  color: #d32f2f;
+}
+
+/* Checkbox Styles */
+.checkbox-wrapper {
+  display: flex !important;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  margin-bottom: 0 !important;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .checkmark {
+  background: #4285f4;
+  border-color: #4285f4;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .checkmark::after {
+  content: '✓';
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.checkbox-label {
+  font-weight: 500 !important;
+  margin: 0 !important;
+}
+
+/* Keyboard Shortcuts */
+.shortcut-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.shortcut-key {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.shortcut-mac {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  font-family: monospace;
+  color: #333;
+  background: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.shortcut-description {
+  color: #666;
+  font-style: italic;
+}
+
+/* Privacy Section */
+.privacy-info {
+  display: grid;
+  gap: 1rem;
+}
+
+.privacy-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #4285f4;
+}
+
+.privacy-icon {
+  color: #4285f4;
+  flex-shrink: 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #4285f4;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #3367d6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+.btn-secondary {
+  background: #f8f9fa;
+  color: #666;
+  border: 2px solid #e0e0e0;
+}
+
+.btn-secondary:hover {
+  background: #e0e0e0;
+  color: #333;
+}
+
+/* Footer */
+.options-footer {
+  padding: 2rem;
+  border-top: 1px solid #e0e0e0;
+  background: #fafafa;
+}
+
+.footer-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-info {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.footer-info p {
+  margin: 0.25rem 0;
+}
+
+.footer-info a {
+  color: #4285f4;
+  text-decoration: none;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+/* Status Messages */
+.status-message {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: slideInRight 0.3s ease-out;
+  max-width: 400px;
+}
+
+.status-message.hidden {
+  display: none;
+}
+
+.status-message.success {
+  border-left: 4px solid #34a853;
+}
+
+.status-message.error {
+  border-left: 4px solid #ea4335;
+}
+
+.status-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.status-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.status-close:hover {
+  color: #333;
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .options-container {
+    margin: 0;
+    box-shadow: none;
+  }
+  
+  .options-header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .options-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .options-main {
+    padding: 1rem;
+  }
+  
+  .settings-section {
+    padding: 1rem;
+  }
+  
+  .shortcut-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .footer-actions {
+    justify-content: center;
+  }
+  
+  .status-message {
+    top: 1rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1a1a1a;
+    color: #e0e0e0;
+  }
+  
+  .options-container {
+    background: #2d2d2d;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .settings-section {
+    background: #2d2d2d;
+    border-color: #444;
+  }
+  
+  .settings-section h2 {
+    color: #e0e0e0;
+    border-bottom-color: #444;
+  }
+  
+  .setting-item label {
+    color: #ccc;
+  }
+  
+  .setting-description {
+    color: #999;
+  }
+  
+  .form-input,
+  .form-select {
+    background: #3a3a3a;
+    border-color: #555;
+    color: #e0e0e0;
+  }
+  
+  .form-input:focus,
+  .form-select:focus {
+    border-color: #4285f4;
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+  }
+  
+  .checkmark {
+    border-color: #666;
+    background: #3a3a3a;
+  }
+  
+  kbd {
+    background: #3a3a3a;
+    border-color: #555;
+    color: #e0e0e0;
+  }
+  
+  .privacy-item {
+    background: #3a3a3a;
+  }
+  
+  .btn-secondary {
+    background: #3a3a3a;
+    color: #ccc;
+    border-color: #555;
+  }
+  
+  .btn-secondary:hover {
+    background: #444;
+    color: #e0e0e0;
+  }
+  
+  .options-footer {
+    background: #3a3a3a;
+    border-top-color: #444;
+  }
+  
+  .status-message {
+    background: #2d2d2d;
+    border-color: #444;
+  }
+}

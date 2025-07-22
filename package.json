@@ -1,0 +1,62 @@
+{
+  "name": "quick-english-translate",
+  "version": "1.1.0",
+  "description": "Chrome extension that allows users to select text on any web page and instantly translate it into English with automatic clipboard copy",
+  "main": "background.js",
+  "scripts": {
+    "build": "echo 'Build complete. Extension files are ready.'",
+    "test": "echo 'Tests not implemented yet'",
+    "lint": "echo 'Linting not configured'",
+    "package": "zip -r quick-english-translate-v1.1.0.zip . -x '*.git*' '*node_modules*' '*.DS_Store*' 'package*.json' 'README.md' 'src/*'"
+  },
+  "keywords": [
+    "chrome-extension",
+    "translate",
+    "translation",
+    "english",
+    "deepl",
+    "google-translate",
+    "openai",
+    "clipboard",
+    "text-selection",
+    "overlay"
+  ],
+  "author": "Quick Translate Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/quick-english-translate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/quick-english-translate/issues"
+  },
+  "homepage": "https://github.com/your-username/quick-english-translate#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "manifest_version": 3,
+  "chrome_extension": {
+    "minimum_chrome_version": "88",
+    "supports_multiple_languages": true,
+    "content_security_policy": "script-src 'self'; object-src 'self';",
+    "permissions_required": [
+      "activeTab",
+      "contextMenus",
+      "storage", 
+      "scripting",
+      "clipboardWrite"
+    ]
+  },
+  "build_info": {
+    "target": "chrome-extension",
+    "manifest_version": 3,
+    "build_date": "2025-07-22",
+    "supported_browsers": [
+      "Chrome 88+",
+      "Edge 88+",
+      "Opera 74+"
+    ]
+  }
+}
