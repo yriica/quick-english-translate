@@ -1,181 +1,231 @@
-# Quick English Translate - Chrome Extension
+# Quick English Translate - Chrome拡張機能
 
-A powerful Chrome extension that allows you to select text on any web page and instantly translate it into English with automatic clipboard copy functionality.
+ウェブページ上のテキストを選択するだけで瞬時に英語翻訳し、自動でクリップボードにコピーする便利なChrome拡張機能です。
 
-## ✨ Features
+## ✨ 主な機能
 
-### 🚀 Core Functionality
-- **Instant Translation**: Select text and translate to English with a single action
-- **Automatic Clipboard Copy**: Translations are automatically copied to your clipboard
-- **Multiple Triggers**: Right-click context menu or keyboard shortcut (Ctrl+Shift+T)
-- **Overlay Display**: Shows translation results in an elegant overlay near selected text
+### 🚀 コア機能
+- **瞬間翻訳**: テキストを選択してワンクリックで英語に翻訳
+- **自動クリップボードコピー**: 翻訳結果を自動でクリップボードにコピー
+- **複数の操作方法**: 右クリックメニューまたはキーボードショートカット（Ctrl+Shift+T）
+- **オーバーレイ表示**: 選択したテキストの近くに翻訳結果を美しく表示
 
-### 🔧 Translation Services
-- **DeepL API** (Recommended) - High-quality translations with superior accuracy
-- **Google Cloud Translate** - Fast translations supporting 100+ languages  
-- **OpenAI GPT** - Contextual translations with natural language understanding
+### 🔧 翻訳サービス
+- **DeepL API**（推奨） - 高品質で正確な翻訳
+- **Google Cloud Translate** - 100以上の言語に対応した高速翻訳
+- **OpenAI GPT** - 文脈を理解した自然な翻訳
 
-### 🎨 User Experience
-- **Smart Overlay Positioning**: Automatically adjusts to avoid screen edges
-- **Toast Notifications**: Clear feedback for all actions
-- **Translation History**: Access your last 100 translations
-- **Dark Mode Support**: Adapts to system preferences
-- **Accessibility**: Full keyboard navigation and screen reader support
+### 🎨 ユーザー体験
+- **スマートな配置**: 画面端を避けて自動で最適な位置に表示
+- **トースト通知**: すべての操作に対する分かりやすいフィードバック
+- **翻訳履歴**: 過去100件の翻訳履歴にアクセス可能
+- **ダークモード対応**: システムの設定に自動で適応
+- **アクセシビリティ**: キーボードナビゲーションとスクリーンリーダーに完全対応
 
-## 📦 Installation
+## 📦 インストール方法
 
-### From Source (Developer Mode)
-1. Download or clone this repository
-2. Open Chrome and go to `chrome://extensions/`
-3. Enable "Developer mode" in the top right
-4. Click "Load unpacked" and select the extension folder
-5. The extension icon will appear in your browser toolbar
+### 開発者モードでのインストール（推奨）
+1. このリポジトリをダウンロードまたはクローン
+2. Chromeを開いて `chrome://extensions/` にアクセス
+3. 右上の「デベロッパー モード」を有効化
+4. 「パッケージ化されていない拡張機能を読み込む」をクリック
+5. 拡張機能のフォルダを選択
+6. ブラウザのツールバーに拡張機能のアイコンが表示されます
 
-### From Chrome Web Store
-*Coming soon - extension will be published to the Chrome Web Store*
+### Chrome ウェブストアから
+*準備中 - 近日中にChrome ウェブストアで公開予定*
 
-## 🔑 Setup
+## 🔑 設定方法
 
-### 1. Get an API Key
-Choose your preferred translation service and get an API key:
+### ステップ1: APIキーの取得
 
-- **DeepL** (Recommended): Visit [DeepL Pro API](https://www.deepl.com/pro-api)
-- **Google Translate**: Visit [Google Cloud Console](https://cloud.google.com/translate/docs/setup) 
-- **OpenAI**: Visit [OpenAI Platform](https://platform.openai.com/api-keys)
+お好みの翻訳サービスからAPIキーを取得してください：
 
-### 2. Configure the Extension
-1. Click the extension icon in your toolbar
-2. Click the settings gear icon
-3. Select your translation service
-4. Enter your API key
-5. Adjust other preferences as needed
-6. Click "Save Settings"
+#### 🥇 DeepL（推奨・初心者向け）
+**料金**: 月50万文字まで無料
+**品質**: 最高レベルの翻訳精度
 
-## 🚀 Usage
+1. [DeepL Pro API](https://www.deepl.com/pro-api) にアクセス
+2. 「今すぐ始める」をクリック
+3. アカウントを作成
+4. **「DeepL API Free」**を選択（クレジットカード不要）
+5. 認証キーをコピー
 
-### Method 1: Context Menu
-1. Select text on any web page
-2. Right-click and choose "Translate to English"
-3. Translation appears in overlay and is copied to clipboard
+#### 🥈 Google Translate（中級者向け）
+**料金**: 月100万文字まで無料
+**特徴**: 多言語対応、高速処理
 
-### Method 2: Keyboard Shortcut  
-1. Select text on any web page
-2. Press `Ctrl+Shift+T` (or `Cmd+Shift+T` on Mac)
-3. Translation appears in overlay and is copied to clipboard
+1. [Google Cloud Console](https://cloud.google.com/translate/docs/setup) にアクセス
+2. Googleアカウントでログイン
+3. 新しいプロジェクトを作成
+4. Cloud Translation APIを有効化
+5. 認証情報でAPIキーを作成
+6. APIキーをコピー
 
-### Method 3: Extension Popup
-1. Select text on any web page
-2. Click the extension icon
-3. View translation history and settings
+#### 🥉 OpenAI（上級者向け）
+**料金**: 従量課金制（使った分だけ課金）
+**特徴**: 文脈理解に優れた自然な翻訳
 
-## ⚙️ Configuration Options
+1. [OpenAI Platform](https://platform.openai.com/api-keys) にアクセス
+2. OpenAIアカウントを作成
+3. 支払い方法を設定（$5以上の入金が必要）
+4. 「Create new secret key」をクリック
+5. APIキーをコピー（`sk-`で始まる文字列）
 
-### Translation Settings
-- **Translation Service**: Choose between DeepL, Google, or OpenAI
-- **API Key**: Your service-specific API key
-- **Max Characters**: Limit translation length (100-10,000 chars)
+### ステップ2: 拡張機能の設定
 
-### Behavior Settings  
-- **Auto-copy to Clipboard**: Enable/disable automatic clipboard copy
-- **Show Overlay**: Enable/disable translation overlay display
-- **Auto-close Delay**: Set overlay auto-close timing (0-300 seconds)
+1. **拡張機能のアイコンをクリック**
+2. **「🔑 API Settings」ボタンをクリック**（新機能！）
+3. 以下の設定を行います：
+   - **Translation Service**: 使用する翻訳サービスを選択
+   - **API Key**: 取得したAPIキーを入力
+   - **Auto-copy to clipboard**: クリップボード自動コピーの有効/無効
+   - **Show translation overlay**: オーバーレイ表示の有効/無効
+   - **Maximum characters**: 翻訳文字数の上限（100-10,000文字）
+   - **Auto-close delay**: オーバーレイの自動閉じる時間（0-300秒）
+4. **「Save Settings」をクリック**
 
-### Keyboard Shortcuts
-- **Default**: `Ctrl+Shift+T` (Windows/Linux) or `Cmd+Shift+T` (Mac)
-- **Customization**: Available through `chrome://extensions/shortcuts`
+## 🚀 使用方法
 
-## 🔒 Privacy & Security
+### 方法1: 右クリックメニュー
+1. **任意のウェブページで日本語テキストを選択**
+   ```
+   例：「Chrome拡張機能の開発は興味深いプロセスです。」
+   ```
+2. **右クリック → "Translate to English"を選択**
+3. **翻訳結果がオーバーレイに表示され、クリップボードに自動コピー**
 
-- **Local Storage**: Translation history stored locally on your device
-- **Secure API Keys**: Keys encrypted in Chrome's secure storage
-- **No Tracking**: No usage analytics or user tracking
-- **Minimal Permissions**: Only requests necessary browser permissions
+### 方法2: キーボードショートカット
+1. **任意のウェブページでテキストを選択**
+2. **`Ctrl+Shift+T`（Mac: `Cmd+Shift+T`）を押す**
+3. **翻訳結果が表示され、クリップボードに自動コピー**
 
-## 🛠️ Technical Details
+### 方法3: 拡張機能ポップアップ
+1. **拡張機能のアイコンをクリック**
+2. **翻訳履歴の確認や設定変更が可能**
 
-### Architecture
-- **Manifest V3**: Modern Chrome extension architecture
-- **Service Worker**: Background processing for translations
-- **Content Scripts**: Page interaction and overlay display
-- **Popup Interface**: Settings and history management
+## ⚙️ 詳細設定
 
-### Browser Support
-- Chrome 88+
-- Microsoft Edge 88+ 
-- Opera 74+
+### 翻訳設定
+- **翻訳サービス**: DeepL、Google、OpenAIから選択
+- **APIキー**: サービス固有のAPIキー
+- **最大文字数**: 翻訳可能な文字数制限（100-10,000文字）
 
-### API Integration
-- RESTful API calls to translation services
-- Error handling and retry logic
-- Rate limiting awareness
-- Secure credential management
+### 動作設定
+- **クリップボード自動コピー**: 翻訳結果の自動コピー機能のON/OFF
+- **オーバーレイ表示**: 翻訳結果オーバーレイの表示/非表示
+- **自動閉じ時間**: オーバーレイが自動で閉じるまでの時間（0-300秒）
 
-## 🐛 Troubleshooting
+### キーボードショートカット
+- **デフォルト**: `Ctrl+Shift+T`（Windows/Linux）または `Cmd+Shift+T`（Mac）
+- **カスタマイズ**: `chrome://extensions/shortcuts` で変更可能
 
-### Common Issues
+## 🔒 プライバシーとセキュリティ
 
-**"API key required" error**
-- Ensure you've entered a valid API key in extension settings
-- Check that your API key format matches the selected service
+- **ローカル保存**: 翻訳履歴はお使いのデバイスにのみ保存
+- **安全なAPIキー**: APIキーはChromeの安全なストレージに暗号化保存
+- **追跡なし**: 使用状況の分析やユーザー追跡は一切行いません
+- **最小権限**: 必要最小限のブラウザ権限のみ要求
 
-**"Quota exceeded" error**  
-- You've reached your API service usage limit
-- Check your service provider's billing/quota settings
+## 🐛 トラブルシューティング
 
-**Translation not copying to clipboard**
-- Ensure clipboard permissions are granted
-- Try clicking on a translation in the history to copy manually
+### よくある問題と解決方法
 
-**Overlay not appearing**
-- Check that "Show overlay" is enabled in settings
-- Ensure you're selecting text on a supported web page
+#### ❌ 「APIキーが必要です」エラー
+**原因**: APIキーが未設定または無効
+**解決方法**:
+1. 拡張機能アイコン → 🔑 API Settings をクリック
+2. 正しいAPIキーが入力されているか確認
+3. APIキーの形式が選択したサービスと一致しているか確認
 
-### Getting Help
-- Check the [Issues](https://github.com/your-username/quick-english-translate/issues) page
-- Create a new issue with detailed description
-- Include browser version and error messages
+#### ❌ 「クォータ超過」エラー
+**原因**: API使用制限に達している
+**解決方法**:
+1. 翌日まで待つ（無料プランの場合）
+2. サービスプロバイダーの設定画面で使用量を確認
+3. 別の翻訳サービスに切り替える
 
-## 🤝 Contributing
+#### ❌ 翻訳がクリップボードにコピーされない
+**原因**: クリップボード権限の問題
+**解決方法**:
+1. 設定で「Auto-copy to clipboard」が有効になっているか確認
+2. HTTPSサイトで試す（HTTPサイトでは制限される場合があります）
+3. 履歴から手動でコピーする
 
-Contributions are welcome! Please feel free to:
+#### ❌ オーバーレイが表示されない
+**原因**: オーバーレイ設定または他の拡張機能との競合
+**解決方法**:
+1. 設定で「Show translation overlay」が有効になっているか確認
+2. 他の翻訳拡張機能を無効化
+3. ページを再読み込み
 
-1. **Report Bugs**: Open an issue with reproduction steps
-2. **Suggest Features**: Describe your feature idea in an issue
-3. **Submit Pull Requests**: Fork the repo and submit improvements
-4. **Improve Documentation**: Help make the README even better
+#### ❌ 「Service worker registration failed」エラー
+**原因**: 拡張機能の読み込みエラー
+**解決方法**:
+1. `chrome://extensions/` で拡張機能を再読み込み
+2. Chromeブラウザを再起動
+3. 拡張機能を削除して再インストール
 
-### Development Setup
-```bash
-git clone https://github.com/your-username/quick-english-translate.git
-cd quick-english-translate
-# Load in Chrome as unpacked extension for testing
+### サポート
+- [Issues](https://github.com/yriica/quick-english-translate/issues) でバグ報告や質問
+- 新しいIssueを作成する際は、詳細な説明とエラーメッセージを含めてください
+
+## 🎯 使用例
+
+### 日本語記事の英訳
+```
+選択テキスト: 「人工知能の発展により、翻訳技術も大幅に向上しています。」
+翻訳結果: "With the development of artificial intelligence, translation technology has also improved significantly."
 ```
 
-## 📄 License
+### 技術文書の翻訳
+```
+選択テキスト: 「このAPIはRESTfulな設計に基づいており、JSON形式でデータを返します。」
+翻訳結果: "This API is based on RESTful design and returns data in JSON format."
+```
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 🤝 貢献
 
-## 🙏 Acknowledgments
+プロジェクトへの貢献を歓迎します！以下の方法で参加できます：
 
-- Chrome Extension documentation and examples
-- Translation service providers (DeepL, Google, OpenAI)
-- Open source community feedback and contributions
+1. **バグ報告**: 再現手順を含めてIssueを作成
+2. **機能提案**: Issueで機能アイデアを説明
+3. **プルリクエスト**: リポジトリをフォークして改善を提出
+4. **ドキュメント改善**: READMEやドキュメントの改善
 
-## 📈 Version History
+### 開発環境のセットアップ
+```bash
+git clone https://github.com/yriica/quick-english-translate.git
+cd quick-english-translate
+# Chromeの開発者モードで読み込んでテスト
+```
 
-### v1.1.0 (Current)
-- ✅ Automatic clipboard copy functionality
-- ✅ Multiple translation service support
-- ✅ Improved error handling and user feedback
-- ✅ Enhanced accessibility features
-- ✅ Dark mode support
+## 📄 ライセンス
 
-### v1.0.0 (Initial Release)
-- ✅ Basic text selection and translation
-- ✅ Context menu integration  
-- ✅ Simple overlay display
-- ✅ DeepL API integration
+このプロジェクトはMITライセンスの下で公開されています。詳細は[LICENSE](LICENSE)ファイルをご覧ください。
+
+## 🙏 謝辞
+
+- Chrome拡張機能のドキュメントと例
+- 翻訳サービスプロバイダー（DeepL、Google、OpenAI）
+- オープンソースコミュニティからのフィードバックと貢献
+
+## 📈 バージョン履歴
+
+### v1.1.0（現在）
+- ✅ 自動クリップボードコピー機能
+- ✅ 複数翻訳サービス対応
+- ✅ 改善されたエラーハンドリングとユーザーフィードバック
+- ✅ アクセシビリティ機能の強化
+- ✅ ダークモード対応
+- ✅ 設定画面への直接アクセスボタン
+
+### v1.0.0（初期版）
+- ✅ 基本的なテキスト選択と翻訳
+- ✅ コンテキストメニュー統合
+- ✅ シンプルなオーバーレイ表示
+- ✅ DeepL API統合
 
 ---
 
-**Quick English Translate** - Bridging language barriers, one click at a time! 🌐
+**Quick English Translate** - 言語の壁を、ワンクリックで越える！🌐
