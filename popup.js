@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     closeSettingsBtn: document.getElementById('closeSettingsBtn'),
     settingsPanel: document.getElementById('settingsPanel'),
     autoCopyToggle: document.getElementById('autoCopyToggle'),
+    openOptionsBtn: document.getElementById('openOptionsBtn'),
     clearHistoryBtn: document.getElementById('clearHistoryBtn'),
     historyList: document.getElementById('historyList'),
     statusIndicator: document.getElementById('statusIndicator'),
@@ -37,6 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Settings panel toggle
     elements.settingsBtn.addEventListener('click', showSettings);
     elements.closeSettingsBtn.addEventListener('click', hideSettings);
+    
+    // Open options page
+    elements.openOptionsBtn.addEventListener('click', openOptionsPage);
 
     // Auto-copy toggle
     elements.autoCopyToggle.addEventListener('change', function() {
@@ -143,11 +147,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function showSettings() {
-    elements.settingsPanel.classList.remove('hidden');
+    console.log('Settings button clicked');
+    console.log('Settings panel element:', elements.settingsPanel);
+    
+    if (elements.settingsPanel) {
+      elements.settingsPanel.classList.remove('hidden');
+      console.log('Hidden class removed from settings panel');
+    } else {
+      console.error('Settings panel element not found');
+    }
   }
 
   function hideSettings() {
     elements.settingsPanel.classList.add('hidden');
+  }
+
+  function openOptionsPage() {
+    chrome.runtime.openOptionsPage();
+    window.close(); // Close popup after opening options
   }
 
   function updateApiKeyHelp() {
