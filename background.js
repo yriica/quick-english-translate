@@ -100,7 +100,7 @@ async function handleTranslationRequest(text, tabId, sendResponse = null) {
     }
 
     // Perform translation
-    const translator = window.TranslationUtils.createTranslator(settings.provider, settings.apiKey);
+    const translator = createTranslator(settings.provider, settings.apiKey);
     const translation = await translator.translate(text, 'EN');
 
     // Save to history

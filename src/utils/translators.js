@@ -185,6 +185,11 @@ function createTranslator(provider, apiKey, options = {}) {
 // Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { createTranslator, TranslationError };
-} else {
+} else if (typeof self !== 'undefined') {
+  // Service Worker environment (Chrome extensions)
+  self.createTranslator = createTranslator;
+  self.TranslationError = TranslationError;
+} else if (typeof window !== 'undefined') {
+  // Browser environment
   window.TranslationUtils = { createTranslator, TranslationError };
 }
