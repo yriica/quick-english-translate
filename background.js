@@ -82,6 +82,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 // Main translation handler
 async function handleTranslationRequest(text, tabId, sendResponse = null) {
+  let settings;
+  
   try {
     // Validate input
     if (!text || !text.trim()) {
@@ -89,7 +91,7 @@ async function handleTranslationRequest(text, tabId, sendResponse = null) {
     }
 
     // Get settings
-    const settings = await getSettings();
+    settings = await getSettings();
     
     if (text.length > settings.maxChars) {
       throw new Error(`Selection exceeds ${settings.maxChars} character limit`);
@@ -131,10 +133,19 @@ async function handleTranslationRequest(text, tabId, sendResponse = null) {
   } catch (error) {
     console.error('Translation error:', error);
     
+    // Get default settings if not already loaded
+    if (!settings) {
+      try {
+        settings = await getSettings();
+      } catch (settingsError) {
+        settings = { provider: 'unknown' };
+      }
+    }
+    
     const errorResponse = {
       success: false,
       error: error.message,
-      provider: error.provider || 'unknown'
+      provider: settings.provider || 'unknown'
     };
 
     if (sendResponse) {
