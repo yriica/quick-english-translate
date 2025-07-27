@@ -41,11 +41,56 @@ chrome.commands.onCommand.addListener((command) => {
   if (command === 'translate_selection') {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       if (tabs[0]) {
-        chrome.tabs.sendMessage(tabs[0].id, { action: 'getSelection' });
+        sendMessageToTab(tabs[0].id, { action: 'getSelection' });
       }
     });
   }
 });
+
+// Helper function to safely send messages to content scripts
+function sendMessageToTab(tabId, message, callback) {
+  // Check if tab exists and is valid for content scripts
+  chrome.tabs.get(tabId, (tab) => {
+    if (chrome.runtime.lastError) {
+      console.log('Tab not found:', chrome.runtime.lastError.message);
+      return;
+    }
+    
+    // Skip special pages that don't support content scripts
+    if (tab.url.startsWith('chrome://') || 
+        tab.url.startsWith('chrome-extension://') ||
+        tab.url.startsWith('moz-extension://') ||
+        tab.url.startsWith('about:') ||
+        tab.url.startsWith('file://')) {
+      console.log('Content script not available on this page:', tab.url);
+      return;
+    }
+
+    chrome.tabs.sendMessage(tabId, message, (response) => {
+      if (chrome.runtime.lastError) {
+        // Content script not ready or doesn't exist
+        console.log('Content script communication failed:', chrome.runtime.lastError.message);
+        
+        // Try to inject content script if it's not loaded
+        chrome.scripting.executeScript({
+          target: { tabId: tabId },
+          files: ['content.js']
+        }, () => {
+          if (chrome.runtime.lastError) {
+            console.log('Failed to inject content script:', chrome.runtime.lastError.message);
+          } else {
+            // Retry sending message after injection
+            setTimeout(() => {
+              chrome.tabs.sendMessage(tabId, message, callback);
+            }, 100);
+          }
+        });
+      } else if (callback) {
+        callback(response);
+      }
+    });
+  });
+}
 
 // Handle messages from content scripts and popup
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -124,7 +169,7 @@ async function handleTranslationRequest(text, tabId, sendResponse = null) {
     if (sendResponse) {
       sendResponse(response);
     } else {
-      chrome.tabs.sendMessage(tabId, {
+      sendMessageToTab(tabId, {
         action: 'translationResult',
         ...response
       });
@@ -151,7 +196,7 @@ async function handleTranslationRequest(text, tabId, sendResponse = null) {
     if (sendResponse) {
       sendResponse(errorResponse);
     } else {
-      chrome.tabs.sendMessage(tabId, {
+      sendMessageToTab(tabId, {
         action: 'translationError',
         ...errorResponse
       });
